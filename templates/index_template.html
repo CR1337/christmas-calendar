@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Christmas Calendar</title>
+</head>
+<body>
+<h1>🎄 Adventskalender 🎄</h1>
+
+<div class="calendar">
+{% for day, day_filename in zip(days, day_filenames) %}
+    <a class="day" href="{{day_filename}}.html" data-day="{{day}}">{{day}}</a>
+{% endfor %}
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date();
+    const currentDay = today.getDate();     // 1–31
+    const currentMonth = today.getMonth();  // December = 11
+
+    // Only unlock if it's December
+    const isDecember = (currentMonth === 10);
+
+    document.querySelectorAll(".day").forEach(el => {
+        const dayNumber = parseInt(el.dataset.day);
+
+        // If it's not December yet OR the day hasn't arrived → lock it
+        if (!isDecember || dayNumber > currentDay) {
+            el.classList.add("locked");
+            el.addEventListener("click", (event) => event.preventDefault());
+        }
+    });
+});
+</script>
+</body>
+</html>

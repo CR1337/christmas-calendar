@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    /* Background image + overlay color */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
+        url("../static/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* Optional: blending mode for extra smooth transparency */
+    background-blend-mode: lighten;
+}
+
+h1 {
+    color: #b30000;
+    margin-top: 30px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.day {
+    display: block;
+    padding: 20px;
+    background: beige;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #b30000;
+    text-decoration: none;
+    border: 2px solid #b30000;
+}
+
+.day:hover {
+    background: #ffecec;
+}
+
+.locked {
+    pointer-events: none;      /* disables clicking */
+    opacity: 0.4;              /* dimmed look */
+    border-color: gray;
+    color: gray;
+}
+
+.locked::after {
+    content: " 🔒";
+}
+
+.day-image {
+    width: 50%;      /* reduce size → smaller image */
+    max-width: 600px; /* optional: prevent it from getting too big */
+    height: auto;
+    margin: 20px auto;
+    border-radius: 15px;
+    display: block;
+}

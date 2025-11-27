@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Christmas Calendar</title>
+</head>
+<body>
+<h1>🎄 Adventskalender 🎄</h1>
+
+<div class="calendar">
+
+    <a class="day" href="day21_T1rqOWsFvk2GFaEDq-uAmwyVZvqLE6te50kOQ907IJw=.html" data-day="21">21</a>
+
+    <a class="day" href="day24_blDVRAH-ZeGWEr38Y1F07oEQnyfMJYlFTzTbD0n3HXs=.html" data-day="24">24</a>
+
+    <a class="day" href="day13_IpUB7PtJTf9IZXL4pQkgtEpZ18HvlbBmd65ZkiK-Fao=.html" data-day="13">13</a>
+
+    <a class="day" href="day6_DRt1zA-Q5j-0DX4eZJW5ebCPvLel0_i5jlJNROXhjXc=.html" data-day="6">6</a>
+
+    <a class="day" href="day18_5t0JYqia6SEGGgW6nIt0qjFHVCGuu5MlnHbl313fu6c=.html" data-day="18">18</a>
+
+    <a class="day" href="day15_q8qvKGCBs4dxUarue9ldGarSmfhpaVN8-NLZgUNY3xo=.html" data-day="15">15</a>
+
+    <a class="day" href="day2_i4UmO-BTXmhvB727yXdKBhJrcBG6Xkb7xQqhE3WrQ14=.html" data-day="2">2</a>
+
+    <a class="day" href="day1_XWPAlj4PfyacTNcjBEpcH7lMVOeNrCHa6vMkmqjMozI=.html" data-day="1">1</a>
+
+    <a class="day" href="day5_7q5_KpJwYTTdYusF62-O3FDtdGobq4Mp1mQqNK1HrNA=.html" data-day="5">5</a>
+
+    <a class="day" href="day10_YrDGRjuykFCjBYRS8DteSQL0IHNYfgVF6httfdNSBEI=.html" data-day="10">10</a>
+
+    <a class="day" href="day22_XSTwWAbm-dnvIiOnNuR8IErNUIuVPldD3TQ21hxDlO4=.html" data-day="22">22</a>
+
+    <a class="day" href="day19_Il9mka8zKHDYFr1nLSxoSbzq3PXn6hiU7YpiUMqUeZY=.html" data-day="19">19</a>
+
+    <a class="day" href="day11_IpHU0V1kY5Ty_2QvmYRS-BDTcaHmp12W81l4GVHhM4E=.html" data-day="11">11</a>
+
+    <a class="day" href="day17_LbCG-KoIoGCYIGsK6PQdstCohtK89geFmwghbTFbxls=.html" data-day="17">17</a>
+
+    <a class="day" href="day9_KOeRHL7Sj7jHg4fSACahyJjUuAw4YWdGngtJE4DbDkg=.html" data-day="9">9</a>
+
+    <a class="day" href="day16_lzXCmHT6-TVEOF2xPf7wGPzf9onxjd9vPQcirOoPQKs=.html" data-day="16">16</a>
+
+    <a class="day" href="day12_SZp1LNcb-0pMBt1H5onfZz5MJwXipWy8FKHSNRhTlTc=.html" data-day="12">12</a>
+
+    <a class="day" href="day7_nQMkiG6__rXjaDCNLwLbDoiJ1Co2AjNC8qaFa7xoMw0=.html" data-day="7">7</a>
+
+    <a class="day" href="day3_OyxysFMBGO5SvLryna8L5A-hdnVyTckj3SU0d4BMC80=.html" data-day="3">3</a>
+
+    <a class="day" href="day23_XLa-ucwwVEqLje4Esu8FEScLt1etk13BaKULJHCoUjE=.html" data-day="23">23</a>
+
+    <a class="day" href="day14__t_8UiWctA1vCz7moA6ke2DuXiphsOI4Jp0u_P-TTUE=.html" data-day="14">14</a>
+
+    <a class="day" href="day4_tVFYBfkQmscCS2klGC0oAwDL2M8Rj3hO5DJ5JZE5R38=.html" data-day="4">4</a>
+
+    <a class="day" href="day20_LsHb808IwEdTI1I1jYomezufoVElgRgAQ_rY9gb4kcw=.html" data-day="20">20</a>
+
+    <a class="day" href="day8_J25ri5u7bVNf26GbGUvxywSy_9raMvcEtgW0xG2exME=.html" data-day="8">8</a>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date();
+    const currentDay = today.getDate();     // 1–31
+    const currentMonth = today.getMonth();  // December = 11
+
+    // Only unlock if it's December
+    const isDecember = (currentMonth === 10);
+
+    document.querySelectorAll(".day").forEach(el => {
+        const dayNumber = parseInt(el.dataset.day);
+
+        // If it's not December yet OR the day hasn't arrived → lock it
+        if (!isDecember || dayNumber > currentDay) {
+            el.classList.add("locked");
+            el.addEventListener("click", (event) => event.preventDefault());
+        }
+    });
+});
+</script>
+</body>
+</html>
